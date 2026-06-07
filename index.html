@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikko Nazareno | Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <style>
+        .animate-section, .game-card, .project-card, .animate-header, .skill-box {
+            opacity: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div id="boot-screen">
+        <div id="boot-text" class="typing-cursor"></div>
+    </div>
+
+    <!-- Reactive Elements & Overlays -->
+    <div id="cursor-ring"></div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div id="hud-sector">// SECTOR_00: HEADER</div>
+    <div class="grid-floor"></div>
+
+    <div class="crt-overlay"></div>
+    <div class="scanline"></div>
+    <div id="particles-container"></div>
+    <div class="torch"></div>
+    <div class="glitch-overlay"></div>
+    
+    <header>
+        <div class="profile-container animate-header">
+            <img src="images/profile.jpg" alt="Mikko Profile" class="profile-img float-animation">
+        </div>
+        <div class="header-main animate-header">
+            <h1 class="glitch-text glitch-target decrypt-target" data-text="Mikko Nazareno">Mikko Nazareno</h1>
+            <a href="resume.pdf" download class="resume-btn target-snap">/ DOWNLOAD_RESUME</a>
+        </div>
+        <p class="status-text animate-header">// STATUS: COMPUTER SCIENCE STUDENT & ASPIRING GAME DEV</p>
+        <a href="#about" class="scroll-prompt animate-header target-snap">[ CLICK_TO_INITIALIZE ]</a>
+    </header>
+    
+    <main id="main-content">
+        <section id="about" class="animate-section hud-bracket" data-sector="SECTOR_01: ABOUT">
+            <h2 class="section-header glitch-target decrypt-target" data-text="About Me">About Me</h2>
+            <p>Computer Science student who is passionate about video games. I focus on game development and UI/UX design. I love collaborating with teams to build high-quality digital experiences while hitting every milestone.</p>
+        </section>
+
+        <section id="loadout" class="animate-section hud-bracket" data-sector="SECTOR_02: LOADOUT">
+            <h2 class="section-header glitch-target decrypt-target" data-text="Technical Loadout">Technical Loadout</h2>
+            <div class="skill-container">
+                <div class="skill-category">
+                    <h3>// CREATIVES</h3>
+                    <div class="skill-list">
+                        <span class="skill-box sweep-anim">Canva</span>
+                        <span class="skill-box sweep-anim">UI/UX Design</span>
+                        <span class="skill-box sweep-anim">Video Editing</span>
+                        <span class="skill-box sweep-anim">Graphics Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>// DEV & ENGINES</h3>
+                    <div class="skill-list">
+                        <span class="skill-box sweep-anim">Unity</span>
+                        <span class="skill-box sweep-anim">Godot</span>
+                        <span class="skill-box sweep-anim">Mobile App Dev</span>
+                        <span class="skill-box sweep-anim">Web Development</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>// COMMAND</h3>
+                    <div class="skill-list">
+                        <span class="skill-box sweep-anim">Project Management</span>
+                        <span class="skill-box sweep-anim">Team Leadership</span>
+                        <span class="skill-box sweep-anim">Workflow Optimization</span>
+                        <span class="skill-box sweep-anim">Asset Management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="top-games" class="animate-section hud-bracket" data-sector="SECTOR_03: TOP_GAMES">
+            <h2 class="section-header glitch-target decrypt-target" data-text="My Top 5 Games O.A.T">My Top 5 Games O.A.T</h2>
+            <p class="section-subtext">// Inspiration for game development, and must plays!</p>
+            <div class="game-grid">
+                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/exp33.jpg');">
+                    <div class="game-info">
+                        <h3>1. Expedition 33</h3>
+                        <span class="game-tag">// ART & GAME DIRECTION</span>
+                    </div>
+                </div>
+                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/sekiro.jpg');">
+                    <div class="game-info">
+                        <h3>2. Sekiro</h3>
+                        <span class="game-tag">// COMBAT & BOSSES</span>
+                    </div>
+                </div>
+                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/got.jpg');">
+                    <div class="game-info">
+                        <h3>3. Ghost of Tsushima</h3>
+                        <span class="game-tag">// STORY & VISUALS</span>
+                    </div>
+                </div>
+                <div class="game-card split-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3">
+                    <div class="split-left" style="background-image: url('images/hk.jpg');"></div>
+                    <div class="split-right" style="background-image: url('images/silksong.jpg');"></div>
+                    <div class="game-info">
+                        <h3>4. HK & Silksong</h3>
+                        <span class="game-tag">// ART & BOSSES</span>
+                    </div>
+                </div>
+                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/eldenring.jpg');">
+                    <div class="game-info">
+                        <h3>5. Elden Ring</h3>
+                        <span class="game-tag">// MUSIC & DIRECTION</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="animate-section hud-bracket" data-sector="SECTOR_04: WORK">
+            <h2 class="section-header glitch-target decrypt-target" data-text="My Work">My Work</h2>
+            
+            <div class="project-filters">
+                <button class="filter-btn active target-snap" data-filter="all">[ ALL ]</button>
+                <button class="filter-btn target-snap" data-filter="dev">[ DEV & APPS ]</button>
+                <button class="filter-btn target-snap" data-filter="ui">[ UI/UX ]</button>
+                <button class="filter-btn target-snap" data-filter="art">[ 2D ART ]</button>
+                <button class="filter-btn target-snap" data-filter="docs">[ DOCS ]</button>
+            </div>
+
+            <div class="project-grid">
+                
+                <div class="project-card float-animation target-snap" data-category="dev" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/salindiwa-landing-page.jpg');" onclick="openModal(['images/salindiwa-landing-page.jpg', 'images/salindiwa-words.jpg', 'images/salindiwa-quiz-1.jpg', 'images/salindiwa-quiz-2.jpg'], 'SalinDiwa Mobile Dictionary', 'Mobile app development. Handled the UI design, splash screen, and color scheme.')">
+                    <div class="project-content">
+                        <h3>SalinDiwa App</h3>
+                        <p>View Gallery</p>
+                        <a href="https://github.com/mikkomikkomi/SalinDiwa-Filipino-Dictionary" target="_blank" class="repo-btn magnetic-btn target-snap" onclick="event.stopPropagation();">View Repository</a>
+                    </div>
+                </div>
+
+                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/welcome-page-1.jpg');" onclick="openModal(['images/welcome-page-1.jpg', 'images/signup-page-2.jpg', 'images/login-page-3.jpg', 'images/home-page-4.jpg', 'images/challenges-5.jpg', 'images/bmi-calculator-6.jpg', 'images/workout-7.jpg', 'images/more-options-8.jpg', 'images/profile-9.jpg', 'images/shop-10.jpg'], 'Mobile Health App Design', 'High-fidelity prototype.')">
+                    <div class="project-content">
+                        <h3>Mobile Health App Design</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/home-design.png');" onclick="openModal(['images/home-design.png', 'images/home-battle-1.png', 'images/home-battle-2.png', 'images/home-battle-3.png', 'images/battle-vs-ai.png', 'images/battle-quick-play.png', 'images/battle-ranked.png', 'images/collection-design.png', 'images/collection-deck.png', 'images/profile-design.png', 'images/shop-design.png'], 'Mobile Game UI/UX', 'UI concepts for Torogi Hero\'s Dogma.')">
+                    <div class="project-content">
+                        <h3>Mobile Game UI/UX</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/studio-sagud-main.png');" onclick="openModal(['images/studio-sagud-main.png', 'images/animations-page.png', 'images/engagements-page.png', 'images/games-page.png', 'images/media-features-page.png', 'images/photos-gallery-page-1.png'], 'Company Website Design', 'Full-page website layout concepts.')">
+                    <div class="project-content">
+                        <h3>Company Website Design</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="art" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/frieren.jpg');" onclick="openModal(['images/frieren.jpg', 'images/2b-nier.jpg', 'images/bocchi.jpg', 'images/fern-frieren.jpg', 'images/fire-keeper-ds3.jpg', 'images/frieren-2.jpg', 'images/frieren-doodles.jpg', 'images/himeno-csm.jpg', 'images/kaoruko-waguri.jpg', 'images/makima-csm.jpg', 'images/pb.jpg', 'images/reze-csm.jpg'], 'Traditional Sketches', 'Hand-drawn character studies.')">
+                    <div class="project-content">
+                        <h3>Traditional Sketches</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="docs" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/brochure-outer.png');" onclick="openModal(['images/calling-card-front.png', 'images/calling-card-back.png', 'images/brochure-inner.png', 'images/brochure-outer.png'], 'Org Brochure and Calling Card', 'Print layout design.')">
+                    <div class="project-content">
+                        <h3>Org Brochure and Calling Card</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/org-site-1.jpg');">
+                    <div class="project-content">
+                        <h3>Organization Website</h3>
+                        <a href="https://www.figma.com/design/w8nk3r3z6j5de7ved8m7VO/Espineda_Nazareno---Lab-Act-4--Organization-Website?node-id=0-1" target="_blank" class="figma-btn magnetic-btn">View in Figma</a>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="docs" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" onclick="openModal(['images/pitch-bible.pdf'], 'A Tail of Two Hearts', 'Official brand book and pitch deck.')">
+                    <div class="project-content">
+                        <h3>A Tail of Two Hearts</h3>
+                        <p>View PDF Document</p>
+                    </div>
+                </div>
+                
+                <div class="project-card float-animation target-snap" data-category="art" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/da-logo.png');" onclick="openModal(['images/athens.png', 'images/beach.png', 'images/centaur.png', 'images/crete.png', 'images/cyclops.png', 'images/da-logo.png', 'images/daedalus.png', 'images/eagle-falcon.png', 'images/greek-soldier.png', 'images/icarus.png', 'images/king-minos.png', 'images/minotaur.png', 'images/plateau.png', 'images/sea.png', 'images/water-hydra.png'], '2D Pixel Art Assets', 'In-game environment and character assets.')">
+                    <div class="project-content">
+                        <h3>2D Pixel Art Assets</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="animate-section hud-bracket" data-sector="SECTOR_05: CONTACT">
+            <h2 class="section-header glitch-target decrypt-target" data-text="Establish Connection">Establish Connection</h2>
+            <div class="contact-links">
+                <a href="mailto:mikko.nazareno0325@gmail.com" class="contact-btn magnetic-btn target-snap">// EMAIL</a>
+                <a href="https://github.com/mikkomikkomi" target="_blank" class="contact-btn magnetic-btn target-snap">// GITHUB</a>
+                <a href="https://www.linkedin.com/in/mikko-nazareno-552573347/" target="_blank" class="contact-btn magnetic-btn target-snap">// LINKEDIN</a>
+                <a href="https://www.facebook.com/mikkomikkomii" target="_blank" class="contact-btn magnetic-btn target-snap">// FACEBOOK</a>
+                <a href="https://www.instagram.com/mikkomikkomi/" target="_blank" class="contact-btn magnetic-btn target-snap">// INSTAGRAM</a>
+                <a href="https://m.me/mikkomikkomii" target="_blank" class="contact-btn magnetic-btn target-snap">// MESSENGER</a>
+            </div>
+        </section>
+    </main>
+
+    <button id="back-to-top" class="target-snap" title="Back to Top">[ ^_TOP ]</button>
+
+    <div id="projectModal" class="modal">
+        <span class="close target-snap" onclick="closeModal()">&times;</span>
+        <div class="modal-content hud-bracket">
+            <div class="carousel-wrapper animate-modal-item">
+                <button class="nav-btn prev-btn target-snap" onclick="changeSlide(-1)">[ < ]</button>
+                
+                <div class="carousel-container" id="zoomContainer">
+                    <div class="zoom-controls" id="zoomUI">
+                        <button class="target-snap" onclick="zoomImage(1.2)" title="Zoom In">[ + ]</button>
+                        <button class="target-snap" onclick="zoomImage(0.8)" title="Zoom Out">[ - ]</button>
+                        <button class="target-snap" onclick="resetZoom()" title="Reset">[ O ]</button>
+                    </div>
+                    
+                    <img id="modalImg" src="" alt="">
+                    <iframe id="pdfViewer" src="" frameborder="0" style="display:none;"></iframe>
+                </div>
+                
+                <button class="nav-btn next-btn target-snap" onclick="changeSlide(1)">[ > ]</button>
+            </div>
+            <div id="modalText">
+                <h3 id="modalTitle" class="animate-modal-item"></h3>
+                <p id="modalDesc" class="animate-modal-item"></p>
+                <div id="slideIndicator" class="slide-info animate-modal-item">// DATA_NODE: 1/1</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>// SYSTEM STATUS: ONLINE | CONNECTION: SECURE | TIME: <span id="live-clock"></span></p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const bootScreen = document.getElementById('boot-screen');
+        const bootText = document.getElementById('boot-text');
+        const sequence = ["// SYSTEM INITIALIZING...", "// LOADING ASSETS...", "// WELCOME."];
+        let step = 0;
+
+        function playBootSequence() {
+            if (step < sequence.length) {
+                bootText.innerText = sequence[step];
+                step++;
+                setTimeout(playBootSequence, 600);
+            } else {
+                setTimeout(() => {
+                    gsap.to(bootScreen, { opacity: 0, duration: 0.5, onComplete: () => {
+                        bootScreen.style.display = 'none';
+                        startMainAnimations();
+                    }});
+                }, 400);
+            }
+        }
+
+        function decryptText(element) {
+            const originalText = element.getAttribute('data-text');
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+            let iterations = 0;
+            const maxIterations = 15;
+            
+            const interval = setInterval(() => {
+                element.innerText = originalText.split('').map((char, index) => {
+                    if (char === ' ') return ' ';
+                    if (index < iterations / maxIterations * originalText.length) return originalText[index];
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join('');
+                
+                iterations++;
+                if (iterations >= maxIterations) {
+                    clearInterval(interval);
+                    element.innerText = originalText;
+                }
+            }, 40);
+        }
+
+        function startMainAnimations() {
+            gsap.to(".animate-header", { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+
+            document.querySelectorAll('.animate-section').forEach(section => {
+                gsap.to(section, {
+                    scrollTrigger: { 
+                        trigger: section, 
+                        start: "top 85%",
+                        onEnter: () => {
+                            updateHudSector(section.getAttribute('data-sector'));
+                            const header = section.querySelector('.decrypt-target');
+                            if (header) decryptText(header);
+                        },
+                        onEnterBack: () => updateHudSector(section.getAttribute('data-sector'))
+                    },
+                    opacity: 1, y: 0, duration: 0.8, ease: "power2.out"
+                });
+            });
+
+            document.querySelectorAll('.game-card, .project-card, .skill-box').forEach(el => {
+                gsap.to(el, {
+                    scrollTrigger: { trigger: el, start: "top 95%" },
+                    opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)"
+                });
+            });
+
+            triggerRandomGlitch();
+            initParticles();
+        }
+
+        function updateHudSector(name) {
+            const el = document.getElementById('hud-sector');
+            gsap.to(el, { opacity: 0, x: 10, duration: 0.2, onComplete: () => {
+                el.innerText = `// ${name}`;
+                gsap.to(el, { opacity: 0.7, x: 0, duration: 0.2 });
+            }});
+        }
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        });
+
+        setInterval(() => {
+            document.getElementById('live-clock').innerText = new Date().toLocaleTimeString();
+        }, 1000);
+
+        function initParticles() {
+            const container = document.getElementById('particles-container');
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(particle);
+                setTimeout(() => { particle.remove(); }, 5000);
+            }, 300);
+        }
+
+        const cursorRing = document.getElementById('cursor-ring');
+        let isCursorSnapping = false;
+
+        document.addEventListener('mousemove', (e) => {
+            document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
+            document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+            
+            if (!isCursorSnapping) {
+                gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
+            }
+
+            const grid = document.querySelector('.grid-floor');
+            if (grid) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 15; 
+                const y = (e.clientY / window.innerHeight - 0.5) * 15;
+                grid.style.transform = `perspective(600px) rotateX(${75 - y}deg) rotateY(${x}deg)`;
+            }
+        });
+
+        document.querySelectorAll('.target-snap').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                isCursorSnapping = true;
+                const rect = el.getBoundingClientRect();
+                gsap.to(cursorRing, { 
+                    x: rect.left + rect.width / 2, 
+                    y: rect.top + rect.height / 2, 
+                    width: rect.width + 10, 
+                    height: rect.height + 10, 
+                    borderRadius: "8px", 
+                    borderColor: "rgba(255,255,255,0.8)",
+                    duration: 0.3 
+                });
+            });
+            el.addEventListener('mouseleave', () => {
+                isCursorSnapping = false;
+                gsap.to(cursorRing, { 
+                    width: 30, height: 30, borderRadius: "50%", 
+                    borderColor: "rgba(255,255,255,0.3)", duration: 0.3 
+                });
+            });
+        });
+
+        document.querySelectorAll('.decrypt-target').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (!el.classList.contains('is-decrypting')) {
+                    el.classList.add('is-decrypting');
+                    decryptText(el);
+                    setTimeout(() => el.classList.remove('is-decrypting'), 650);
+                }
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.classList.add('click-ripple');
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        gsap.to(card, { opacity: 1, scale: 1, filter: "grayscale(100%) blur(0px)", duration: 0.4, pointerEvents: "auto" });
+                    } else {
+                        gsap.to(card, { opacity: 0.15, scale: 0.95, filter: "grayscale(100%) blur(2px)", duration: 0.4, pointerEvents: "none" });
+                    }
+                });
+            });
+        });
+
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = `translate(0px, 0px)`; });
+        });
+
+        let currentImages = [];
+        let currentIndex = 0;
+        let imgScale = 1;
+        let imgPointX = 0, imgPointY = 0;
+        let isPanning = false;
+        let startX = 0, startY = 0;
+        
+        const zoomCont = document.getElementById("zoomContainer");
+        const imgEl = document.getElementById("modalImg");
+
+        function updateTransform() {
+            imgEl.style.transform = `translate(${imgPointX}px, ${imgPointY}px) scale(${imgScale})`;
+        }
+
+        function zoomImage(factor) {
+            imgScale *= factor;
+            if (imgScale < 1) { resetZoom(); return; }
+            updateTransform();
+        }
+
+        function resetZoom() {
+            imgScale = 1;
+            imgPointX = 0;
+            imgPointY = 0;
+            updateTransform();
+        }
+
+        zoomCont.addEventListener('wheel', (e) => {
+            if (imgEl.style.display !== "none") {
+                e.preventDefault();
+                (e.deltaY < 0) ? zoomImage(1.1) : zoomImage(0.9);
+            }
+        }, { passive: false });
+
+        zoomCont.addEventListener('mousedown', (e) => {
+            if(imgScale > 1 && imgEl.style.display !== "none") {
+                e.preventDefault();
+                isPanning = true;
+                startX = e.clientX - imgPointX;
+                startY = e.clientY - imgPointY;
+                zoomCont.style.cursor = "grabbing";
+            }
+        });
+
+        zoomCont.addEventListener('mousemove', (e) => {
+            if (!isPanning || imgScale === 1) return;
+            imgPointX = e.clientX - startX;
+            imgPointY = e.clientY - startY;
+            updateTransform();
+        });
+
+        zoomCont.addEventListener('mouseup', () => { isPanning = false; zoomCont.style.cursor = "grab"; });
+        zoomCont.addEventListener('mouseleave', () => { isPanning = false; zoomCont.style.cursor = "grab"; });
+
+        let touchStartX = 0, touchStartY = 0;
+
+        zoomCont.addEventListener('touchstart', (e) => {
+            if(imgScale > 1) {
+                isPanning = true;
+                startX = e.touches[0].clientX - imgPointX;
+                startY = e.touches[0].clientY - imgPointY;
+            } else {
+                touchStartX = e.touches[0].screenX; 
+                touchStartY = e.touches[0].screenY; 
+            }
+        });
+
+        zoomCont.addEventListener('touchmove', (e) => {
+            if (isPanning && imgScale > 1) {
+                e.preventDefault();
+                imgPointX = e.touches[0].clientX - startX;
+                imgPointY = e.touches[0].clientY - startY;
+                updateTransform();
+            }
+        }, { passive: false });
+
+        zoomCont.addEventListener('touchend', (e) => {
+            isPanning = false;
+            if (imgScale === 1) {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const diffX = touchStartX - touchEndX;
+                const diffY = Math.abs(touchStartY - touchEndY);
+
+                if (diffY < 50) { 
+                    if (diffX > 50) changeSlide(1);
+                    if (diffX < -50) changeSlide(-1);
+                }
+            }
+        });
+
+        function openModal(imgArray, title, desc) {
+            currentImages = imgArray;
+            currentIndex = 0;
+            resetZoom();
+            const modal = document.getElementById("projectModal");
+            const pdfEl = document.getElementById("pdfViewer");
+            const navBtns = document.querySelectorAll(".nav-btn");
+            const zoomUI = document.getElementById("zoomUI");
+
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDesc").innerText = desc;
+
+            if (currentImages[0].toLowerCase().endsWith('.pdf')) {
+                imgEl.style.display = "none";
+                pdfEl.style.display = "block";
+                pdfEl.src = currentImages[0];
+                zoomUI.style.display = "none";
+                navBtns.forEach(btn => btn.style.visibility = "hidden");
+                document.getElementById("slideIndicator").style.visibility = "hidden";
+            } else {
+                imgEl.style.display = "block";
+                pdfEl.style.display = "none";
+                pdfEl.src = "";
+                zoomUI.style.display = "flex";
+                navBtns.forEach(btn => btn.style.visibility = "visible");
+                document.getElementById("slideIndicator").style.visibility = "visible";
+                updateCarousel();
+            }
+
+            modal.style.display = "flex";
+            gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+            gsap.fromTo(".modal-content", { scale: 0.85, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.5)" });
+            gsap.to(".animate-modal-item", { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, delay: 0.2 });
+            document.querySelector(".modal").scrollTop = 0;
+        }
+
+        function updateCarousel() {
+            imgEl.src = currentImages[currentIndex];
+            document.getElementById("slideIndicator").innerText = `// DATA_NODE: ${currentIndex + 1}/${currentImages.length}`;
+            const showNav = currentImages.length > 1;
+            document.querySelector(".prev-btn").style.visibility = showNav ? "visible" : "hidden";
+            document.querySelector(".next-btn").style.visibility = showNav ? "visible" : "hidden";
+        }
+
+        function changeSlide(direction) {
+            resetZoom();
+            gsap.to(imgEl, { opacity: 0, x: direction * -20, duration: 0.2, onComplete: () => {
+                currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+                updateCarousel();
+                gsap.fromTo(imgEl, { x: direction * 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3 });
+            }});
+        }
+
+        function closeModal() { 
+            const modal = document.getElementById("projectModal");
+            resetZoom();
+            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
+                modal.style.display = "none";
+                document.getElementById("pdfViewer").src = ""; 
+                gsap.set(".animate-modal-item", { opacity: 0, y: 10 });
+            }});
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById("projectModal").style.display === "flex") {
+                if (e.key === "ArrowRight") changeSlide(1);
+                if (e.key === "ArrowLeft") changeSlide(-1);
+                if (e.key === "Escape") closeModal();
+            }
+        });
+
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) btt.style.opacity = '1';
+            else btt.style.opacity = '0';
+        });
+        btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        window.onclick = (e) => { if (e.target.className == "modal") closeModal(); }
+
+        function triggerRandomGlitch() {
+            const targets = document.querySelectorAll('.glitch-target');
+            if (targets.length === 0) return;
+            const randomElement = targets[Math.floor(Math.random() * targets.length)];
+            randomElement.classList.add('is-glitching');
+            setTimeout(() => { randomElement.classList.remove('is-glitching'); }, 800);
+            setTimeout(triggerRandomGlitch, Math.random() * 2000 + 1500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { playBootSequence(); });
+    </script>
+</body>
+</html>
