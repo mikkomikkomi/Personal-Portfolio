@@ -2,7 +2,7 @@
 
 Welcome to the repository for my personal portfolio website! I designed and built this site to act as a digital hub for my UI/UX designs, game development projects, and 2D art. 
 
-You can view the live site here: **https://mikkomikkomi.github.io/website-portfolio/**
+You can view the live site here: **https://mikkomikkomi.github.io/Personal-Portfolio/**
 
 ## Design Philosophy
 
