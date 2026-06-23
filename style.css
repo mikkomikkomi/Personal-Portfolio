@@ -84,8 +84,7 @@
     left: -100px; 
     right: -100px; 
     height: 40vh; 
-    background-image: linear-gradient(var(--border-color) 1px, transparent 1px), 
-                      linear-gradient(90deg, var(--border-color) 1px, transparent 1px); 
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px); 
     background-size: 50px 50px; 
     transform: perspective(600px) rotateX(75deg); 
     pointer-events: none; 
