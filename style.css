@@ -506,6 +506,8 @@ section {
     filter: grayscale(100%); 
     transition: filter 0.5s ease, transform 0.3s ease; 
     transform-style: preserve-3d; 
+    content-visibility: auto;
+    contain-intrinsic-size: 280px 350px;
 }
 
 .game-card::after, .project-card::after { 
@@ -863,32 +865,60 @@ footer {
 .split-left { left: 0; } 
 .split-right { right: 0; }
 
-/* OPTIMIZATION: Mobile Performance Blocks */
+/* Mobile performance overrides */
 @media (max-width: 700px) {
-    /* Hide heavy layout items */
-    #hud-sector, #progress-container, #cursor-ring, .torch, #particles-container, .scanline { 
-        display: none; 
+    #hud-sector, 
+    #progress-container, 
+    #cursor-ring, 
+    .torch, 
+    #particles-container, 
+    .scanline { 
+        display: none !important; 
     }
     
-    /* Stop the heavy overlay repaint animation */
     .crt-overlay { 
-        animation: none; 
-        opacity: 0.5; 
+        animation: none !important; 
+        opacity: 0.3 !important; 
+    }
+
+    section {
+        padding: 20px 15px;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background-color: rgba(15, 15, 15, 0.98);
     }
     
-    /* Forcefully flatten the 3D grid and stop transform calculations */
     .project-card, .game-card { 
         flex: 1 0 100%; 
         height: 280px; 
         transform: none !important; 
         transition: none !important;
+        filter: none !important;
+        contain-intrinsic-size: 100% 280px;
     }
+
+    /* Strips mobile blur layer across cards */
+    .project-card::before {
+        display: none !important; 
+    }
+
     .game-info, .project-content { 
         transform: none !important; 
     }
     
-    /* Keep modal UI clean */
-    .modal-content { width: 100%; padding: 10px; height: 100vh; max-height: none; justify-content: center; }
+    .modal {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .modal-content { 
+        width: 100%; 
+        padding: 10px; 
+        height: 100vh; 
+        max-height: none; 
+        justify-content: center; 
+    }
+
     .carousel-container { height: 70vh; }
     .nav-btn { padding: 10px 15px; font-size: 1.2rem; }
     .zoom-controls button { padding: 8px 15px; font-size: 1.2rem; }

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     
+    <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
@@ -22,9 +23,9 @@
         <div id="boot-text" class="typing-cursor"></div>
     </div>
 
+    <!-- Reactive Elements & Overlays -->
     <div id="cursor-ring"></div>
     <div id="progress-container"><div id="progress-bar"></div></div>
-    <div id="hud-sector">// SECTOR_00: HEADER</div>
     <div class="grid-floor"></div>
 
     <div class="crt-overlay"></div>
@@ -42,16 +43,15 @@
             <a href="resume.pdf" download class="resume-btn target-snap">/ DOWNLOAD_RESUME</a>
         </div>
         <p class="status-text animate-header">// STATUS: COMPUTER SCIENCE STUDENT & ASPIRING GAME DEV</p>
-        <a href="#about" class="scroll-prompt animate-header target-snap">[ CLICK_TO_INITIALIZE ]</a>
     </header>
     
     <main id="main-content">
-        <section id="about" class="animate-section hud-bracket" data-sector="SECTOR_01: ABOUT">
+        <section id="about" class="animate-section hud-bracket">
             <h2 class="section-header glitch-target decrypt-target" data-text="About Me">About Me</h2>
             <p>Computer Science student who is passionate about video games. I focus on game development and UI/UX design. I love collaborating with teams to build high-quality digital experiences while hitting every milestone.</p>
         </section>
 
-        <section id="loadout" class="animate-section hud-bracket" data-sector="SECTOR_02: LOADOUT">
+        <section id="loadout" class="animate-section hud-bracket">
             <h2 class="section-header glitch-target decrypt-target" data-text="Technical Loadout">Technical Loadout</h2>
             <div class="skill-container">
                 <div class="skill-category">
@@ -91,29 +91,29 @@
             </div>
         </section>
 
-        <section id="top-games" class="animate-section hud-bracket" data-sector="SECTOR_03: TOP_GAMES">
+        <section id="top-games" class="animate-section hud-bracket">
             <h2 class="section-header glitch-target decrypt-target" data-text="My Top 5 Games O.A.T">My Top 5 Games O.A.T</h2>
             <p class="section-subtext">// Inspiration for game design and development, and must plays!</p>
             <div class="game-grid">
-                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/exp33.jpg');">
+                <div class="game-card float-animation target-snap" style="background-image: url('images/exp33.jpg');">
                     <div class="game-info">
                         <h3>Clair Obscur: Expedition 33</h3>
                         <span class="game-tag">// STORY, ART & GAME DIRECTION</span>
                     </div>
                 </div>
-                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/sekiro.jpg');">
+                <div class="game-card float-animation target-snap" style="background-image: url('images/sekiro.jpg');">
                     <div class="game-info">
                         <h3>Sekiro: Shadows Die Twice</h3>
                         <span class="game-tag">// COMBAT & BOSSES</span>
                     </div>
                 </div>
-                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/got.jpg');">
+                <div class="game-card float-animation target-snap" style="background-image: url('images/got.jpg');">
                     <div class="game-info">
                         <h3>Ghost of Tsushima</h3>
                         <span class="game-tag">// STORY & VISUALS</span>
                     </div>
                 </div>
-                <div class="game-card split-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3">
+                <div class="game-card split-card float-animation target-snap">
                     <div class="split-left" style="background-image: url('images/hk.jpg');"></div>
                     <div class="split-right" style="background-image: url('images/silksong.jpg');"></div>
                     <div class="game-info">
@@ -121,7 +121,7 @@
                         <span class="game-tag">// ART & BOSSES</span>
                     </div>
                 </div>
-                <div class="game-card float-animation target-snap" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.3" style="background-image: url('images/eldenring.jpg');">
+                <div class="game-card float-animation target-snap" style="background-image: url('images/eldenring.jpg');">
                     <div class="game-info">
                         <h3>Elden Ring</h3>
                         <span class="game-tag">// MUSIC, ART & GAME DIRECTION</span>
@@ -130,7 +130,7 @@
             </div>
         </section>
 
-        <section id="projects" class="animate-section hud-bracket" data-sector="SECTOR_04: WORK">
+        <section id="projects" class="animate-section hud-bracket">
             <h2 class="section-header glitch-target decrypt-target" data-text="My Work">My Work</h2>
             
             <div class="project-filters">
@@ -143,7 +143,15 @@
 
             <div class="project-grid">
                 
-                <div class="project-card float-animation target-snap" data-category="dev" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/salindiwa-landing-page.jpg');" onclick="openModal(['images/salindiwa-landing-page.jpg', 'images/salindiwa-words.jpg', 'images/salindiwa-quiz-1.jpg', 'images/salindiwa-quiz-2.jpg'], 'SalinDiwa Mobile Dictionary', 'Mobile app development. Handled the UI design, splash screen, and color scheme.')">
+                <!-- BusyBee Productivity App UI/UX Card -->
+                <div class="project-card float-animation target-snap" data-category="ui" style="background-image: url('images/desktop-main-busybee.jpg');" onclick="openModal(['images/desktop-main-busybee.jpg', 'images/mobile-main-busybee.jpg'], 'BusyBee Productivity Suite', 'UI/UX interface design for a productivity suite featuring both desktop workspace and mobile responsive views.')">
+                    <div class="project-content">
+                        <h3>BusyBee Productivity App</h3>
+                        <p>View Gallery</p>
+                    </div>
+                </div>
+
+                <div class="project-card float-animation target-snap" data-category="dev" style="background-image: url('images/salindiwa-landing-page.jpg');" onclick="openModal(['images/salindiwa-landing-page.jpg', 'images/salindiwa-words.jpg', 'images/salindiwa-quiz-1.jpg', 'images/salindiwa-quiz-2.jpg'], 'SalinDiwa Mobile Dictionary', 'Mobile app development. Handled the UI design, splash screen, and color scheme.')">
                     <div class="project-content">
                         <h3>SalinDiwa App</h3>
                         <p>View Gallery</p>
@@ -151,56 +159,56 @@
                     </div>
                 </div>
 
-                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/welcome-page-1.jpg');" onclick="openModal(['images/welcome-page-1.jpg', 'images/signup-page-2.jpg', 'images/login-page-3.jpg', 'images/home-page-4.jpg', 'images/challenges-5.jpg', 'images/bmi-calculator-6.jpg', 'images/workout-7.jpg', 'images/more-options-8.jpg', 'images/profile-9.jpg', 'images/shop-10.jpg'], 'Mobile Health App Design', 'High-fidelity prototype.')">
+                <div class="project-card float-animation target-snap" data-category="ui" style="background-image: url('images/welcome-page-1.jpg');" onclick="openModal(['images/welcome-page-1.jpg', 'images/signup-page-2.jpg', 'images/login-page-3.jpg', 'images/home-page-4.jpg', 'challenges-5.jpg', 'images/bmi-calculator-6.jpg', 'images/workout-7.jpg', 'images/more-options-8.jpg', 'images/profile-9.jpg', 'images/shop-10.jpg'], 'Mobile Health App Design', 'High-fidelity prototype.')">
                     <div class="project-content">
                         <h3>Mobile Health App Design</h3>
                         <p>View Gallery</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/home-design.png');" onclick="openModal(['images/home-design.png', 'images/home-battle-1.png', 'images/home-battle-2.png', 'images/home-battle-3.png', 'images/battle-vs-ai.png', 'images/battle-quick-play.png', 'images/battle-ranked.png', 'images/collection-design.png', 'images/collection-deck.png', 'images/profile-design.png', 'images/shop-design.png'], 'Mobile Game UI/UX', 'UI concepts for Torogi Hero\'s Dogma.')">
+                <div class="project-card float-animation target-snap" data-category="ui" style="background-image: url('images/home-design.png');" onclick="openModal(['images/home-design.png', 'images/home-battle-1.png', 'images/home-battle-2.png', 'images/home-battle-3.png', 'images/battle-vs-ai.png', 'images/battle-quick-play.png', 'images/battle-ranked.png', 'images/collection-design.png', 'images/collection-deck.png', 'images/profile-design.png', 'images/shop-design.png'], 'Mobile Game UI/UX', 'UI concepts for Torogi Hero\'s Dogma.')">
                     <div class="project-content">
                         <h3>Mobile Game UI/UX</h3>
                         <p>View Gallery</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/studio-sagud-main.png');" onclick="openModal(['images/studio-sagud-main.png', 'images/animations-page.png', 'images/engagements-page.png', 'images/games-page.png', 'images/media-features-page.png', 'images/photos-gallery-page-1.png'], 'Company Website Design', 'Full-page website layout concepts.')">
+                <div class="project-card float-animation target-snap" data-category="ui" style="background-image: url('images/studio-sagud-main.png');" onclick="openModal(['images/studio-sagud-main.png', 'images/animations-page.png', 'images/engagements-page.png', 'images/games-page.png', 'images/media-features-page.png', 'images/photos-gallery-page-1.png'], 'Company Website Design', 'Full-page website layout concepts.')">
                     <div class="project-content">
                         <h3>Company Website Design</h3>
                         <p>View Gallery</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="art" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/frieren.jpg');" onclick="openModal(['images/frieren.jpg', 'images/2b-nier.jpg', 'images/bocchi.jpg', 'images/fern-frieren.jpg', 'images/fire-keeper-ds3.jpg', 'images/frieren-2.jpg', 'images/frieren-doodles.jpg', 'images/himeno-csm.jpg', 'images/kaoruko-waguri.jpg', 'images/makima-csm.jpg', 'images/pb.jpg', 'images/reze-csm.jpg'], 'Traditional Sketches', 'Hand-drawn character studies.')">
+                <div class="project-card float-animation target-snap" data-category="art" style="background-image: url('images/frieren.jpg');" onclick="openModal(['images/frieren.jpg', 'images/2b-nier.jpg', 'images/bocchi.jpg', 'images/fern-frieren.jpg', 'images/fire-keeper-ds3.jpg', 'images/frieren-2.jpg', 'images/frieren-doodles.jpg', 'images/himeno-csm.jpg', 'images/kaoruko-waguri.jpg', 'images/makima-csm.jpg', 'images/pb.jpg', 'images/reze-csm.jpg'], 'Traditional Sketches', 'Hand-drawn character studies.')">
                     <div class="project-content">
                         <h3>Traditional Sketches</h3>
                         <p>View Gallery</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="docs" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/brochure-outer.png');" onclick="openModal(['images/calling-card-front.png', 'images/calling-card-back.png', 'images/brochure-inner.png', 'images/brochure-outer.png'], 'Org Brochure and Calling Card', 'Print layout design.')">
+                <div class="project-card float-animation target-snap" data-category="docs" style="background-image: url('images/brochure-outer.png');" onclick="openModal(['images/calling-card-front.png', 'images/calling-card-back.png', 'images/brochure-inner.png', 'images/brochure-outer.png'], 'Org Brochure and Calling Card', 'Print layout design.')">
                     <div class="project-content">
                         <h3>Org Brochure and Calling Card</h3>
                         <p>View Gallery</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="ui" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/org-site-1.jpg');">
+                <div class="project-card float-animation target-snap" data-category="ui" style="background-image: url('images/org-site-1.jpg');">
                     <div class="project-content">
                         <h3>Organization Website</h3>
                         <a href="https://www.figma.com/design/w8nk3r3z6j5de7ved8m7VO/Espineda_Nazareno---Lab-Act-4--Organization-Website?node-id=0-1" target="_blank" class="figma-btn magnetic-btn">View in Figma</a>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="docs" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" onclick="openModal(['images/pitch-bible.pdf'], 'A Tail of Two Hearts', 'Official brand book and pitch deck.')">
+                <div class="project-card float-animation target-snap" data-category="docs" onclick="openModal(['images/pitch-bible.pdf'], 'A Tail of Two Hearts', 'Official brand book and pitch deck.')">
                     <div class="project-content">
                         <h3>A Tail of Two Hearts</h3>
                         <p>View PDF Document</p>
                     </div>
                 </div>
                 
-                <div class="project-card float-animation target-snap" data-category="art" data-tilt data-tilt-scale="1.05" data-tilt-glare data-tilt-max-glare="0.2" style="background-image: url('images/da-logo.png');" onclick="openModal(['images/athens.png', 'images/beach.png', 'images/centaur.png', 'images/crete.png', 'images/cyclops.png', 'images/da-logo.png', 'images/daedalus.png', 'images/eagle-falcon.png', 'images/greek-soldier.png', 'images/icarus.png', 'images/king-minos.png', 'images/minotaur.png', 'images/plateau.png', 'images/sea.png', 'images/water-hydra.png'], '2D Pixel Art Assets', 'In-game environment and character assets.')">
+                <div class="project-card float-animation target-snap" data-category="art" style="background-image: url('images/da-logo.png');" onclick="openModal(['images/athens.png', 'images/beach.png', 'images/centaur.png', 'images/crete.png', 'images/cyclops.png', 'images/da-logo.png', 'images/daedalus.png', 'images/eagle-falcon.png', 'images/greek-soldier.png', 'images/icarus.png', 'images/king-minos.png', 'images/minotaur.png', 'images/plateau.png', 'images/sea.png', 'images/water-hydra.png'], '2D Pixel Art Assets', 'In-game environment and character assets.')">
                     <div class="project-content">
                         <h3>2D Pixel Art Assets</h3>
                         <p>View Gallery</p>
@@ -209,7 +217,7 @@
             </div>
         </section>
 
-        <section id="contact" class="animate-section hud-bracket" data-sector="SECTOR_05: CONTACT">
+        <section id="contact" class="animate-section hud-bracket">
             <h2 class="section-header glitch-target decrypt-target" data-text="Establish Connection">Establish Connection</h2>
             <div class="contact-links">
                 <a href="mailto:mikko.nazareno0325@gmail.com" class="contact-btn magnetic-btn target-snap">// EMAIL</a>
@@ -237,7 +245,7 @@
                         <button class="target-snap" onclick="resetZoom()" title="Reset">[ O ]</button>
                     </div>
                     
-                    <img id="modalImg" src="" alt="">
+                    <img id="modalImg" src="" alt="" decoding="async">
                     <iframe id="pdfViewer" src="" frameborder="0" style="display:none;"></iframe>
                 </div>
                 
@@ -308,11 +316,9 @@
                         trigger: section, 
                         start: "top 85%",
                         onEnter: () => {
-                            updateHudSector(section.getAttribute('data-sector'));
                             const header = section.querySelector('.decrypt-target');
                             if (header) decryptText(header);
-                        },
-                        onEnterBack: () => updateHudSector(section.getAttribute('data-sector'))
+                        }
                     },
                     opacity: 1, y: 0, duration: 0.8, ease: "power2.out"
                 });
@@ -325,16 +331,18 @@
                 });
             });
 
+            // Gated desktop initialization for 3D tilt
+            if (window.innerWidth > 700 && typeof VanillaTilt !== "undefined") {
+                VanillaTilt.init(document.querySelectorAll(".game-card, .project-card"), {
+                    max: 10,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.2
+                });
+            }
+
             triggerRandomGlitch();
             initParticles();
-        }
-
-        function updateHudSector(name) {
-            const el = document.getElementById('hud-sector');
-            gsap.to(el, { opacity: 0, x: 10, duration: 0.2, onComplete: () => {
-                el.innerText = `// ${name}`;
-                gsap.to(el, { opacity: 0.7, x: 0, duration: 0.2 });
-            }});
         }
 
         window.addEventListener('scroll', () => {
@@ -349,7 +357,6 @@
         }, 1000);
 
         function initParticles() {
-            // OPTIMIZATION: Stop rendering particles on mobile screens
             if (window.innerWidth <= 700) return; 
 
             const container = document.getElementById('particles-container');
@@ -367,7 +374,6 @@
         let isCursorSnapping = false;
 
         document.addEventListener('mousemove', (e) => {
-            // OPTIMIZATION: Stop heavy custom cursor calculations on mobile touch events
             if (window.innerWidth <= 700) return;
 
             document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
@@ -387,6 +393,7 @@
 
         document.querySelectorAll('.target-snap').forEach(el => {
             el.addEventListener('mouseenter', () => {
+                if (window.innerWidth <= 700) return;
                 isCursorSnapping = true;
                 const rect = el.getBoundingClientRect();
                 gsap.to(cursorRing, { 
@@ -400,6 +407,7 @@
                 });
             });
             el.addEventListener('mouseleave', () => {
+                if (window.innerWidth <= 700) return;
                 isCursorSnapping = false;
                 gsap.to(cursorRing, { 
                     width: 30, height: 30, borderRadius: "50%", 
@@ -419,6 +427,7 @@
         });
 
         window.addEventListener('click', (e) => {
+            if (window.innerWidth <= 700) return;
             const ripple = document.createElement('div');
             ripple.classList.add('click-ripple');
             ripple.style.left = e.clientX + 'px';
@@ -435,9 +444,9 @@
                 const filter = btn.getAttribute('data-filter');
                 document.querySelectorAll('.project-card').forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        gsap.to(card, { opacity: 1, scale: 1, filter: "grayscale(100%) blur(0px)", duration: 0.4, pointerEvents: "auto" });
+                        gsap.to(card, { opacity: 1, scale: 1, duration: 0.3, pointerEvents: "auto" });
                     } else {
-                        gsap.to(card, { opacity: 0.15, scale: 0.95, filter: "grayscale(100%) blur(2px)", duration: 0.4, pointerEvents: "none" });
+                        gsap.to(card, { opacity: 0.15, scale: 0.95, duration: 0.3, pointerEvents: "none" });
                     }
                 });
             });
@@ -446,6 +455,7 @@
         const magneticBtns = document.querySelectorAll('.magnetic-btn');
         magneticBtns.forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
+                if (window.innerWidth <= 700) return;
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
@@ -575,9 +585,9 @@
             }
 
             modal.style.display = "flex";
-            gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.4 });
-            gsap.fromTo(".modal-content", { scale: 0.85, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.5)" });
-            gsap.to(".animate-modal-item", { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, delay: 0.2 });
+            gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+            gsap.fromTo(".modal-content", { scale: 0.9 }, { scale: 1, duration: 0.3, ease: "power2.out" });
+            gsap.to(".animate-modal-item", { opacity: 1, y: 0, duration: 0.3, stagger: 0.05, delay: 0.1 });
             document.querySelector(".modal").scrollTop = 0;
         }
 
@@ -591,17 +601,17 @@
 
         function changeSlide(direction) {
             resetZoom();
-            gsap.to(imgEl, { opacity: 0, x: direction * -20, duration: 0.2, onComplete: () => {
+            gsap.to(imgEl, { opacity: 0, duration: 0.15, onComplete: () => {
                 currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
                 updateCarousel();
-                gsap.fromTo(imgEl, { x: direction * 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3 });
+                gsap.to(imgEl, { opacity: 1, duration: 0.2 });
             }});
         }
 
         function closeModal() { 
             const modal = document.getElementById("projectModal");
             resetZoom();
-            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
+            gsap.to(modal, { opacity: 0, duration: 0.2, onComplete: () => {
                 modal.style.display = "none";
                 document.getElementById("pdfViewer").src = ""; 
                 gsap.set(".animate-modal-item", { opacity: 0, y: 10 });
@@ -626,6 +636,7 @@
         window.onclick = (e) => { if (e.target.className == "modal") closeModal(); }
 
         function triggerRandomGlitch() {
+            if (window.innerWidth <= 700) return;
             const targets = document.querySelectorAll('.glitch-target');
             if (targets.length === 0) return;
             const randomElement = targets[Math.floor(Math.random() * targets.length)];
