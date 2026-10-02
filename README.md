@@ -1,21 +1,31 @@
-# Personal Portfolio Website - Mikko Nazareno
+# Mikko Nazareno | Portfolio
 
-Welcome to the repository for my personal portfolio website! I designed and built this site to act as a digital hub for my UI/UX designs, game development projects, and 2D art. 
+Personal portfolio website showcasing my work in UI/UX design, web development, game development, graphics design, and other creative projects.
 
-You can view the live site here: **https://mikkomikkomi.github.io/Personal-Portfolio/**
+🌐 View Portfolio
 
-## Design Philosophy
+## About Me
 
-As a Computer Science student and aspiring game developer, I wanted my portfolio to reflect my specific interests. The website is built with a "Video Game HUD / Terminal" aesthetic, featuring a dark mode color palette, monospace typography, and subtle CRT scanline overlays to create an immersive, game-like experience for the user.
+I'm a Computer Science student with a strong interest in UI/UX design, game development, web development, and digital creative work.
 
-## Key Features
+## Website Features
 
-I built this site from scratch using vanilla web technologies, focusing heavily on custom interactions and smooth animations:
-* **Custom Image Gallery Modal:** A fully custom-coded modal that includes a drag-and-pan zoom feature, allowing users to closely inspect high-fidelity UI mockups and art.
-* **Dynamic Category Filters:** A JavaScript-driven filtering system that smoothly fades non-relevant projects into the background.
-* **Interactive 3D Cards:** Implemented `vanilla-tilt.js` combined with CSS `preserve-3d` to create a physical pop-out effect on the project and game cards when hovered.
-* **Scroll & Mouse Reactivity:** Features a custom target-lock cursor, click shockwave ripples, and scroll-velocity distortion to make the site feel alive and highly responsive.
-* **GSAP Animations:** Utilized the GSAP library and ScrollTrigger for smooth, staggered element loading and glitch-text decryption effects.
+The portfolio was built from scratch using:
+
+Responsive HTML/CSS layout
+Vanilla JavaScript
+GSAP animations
+Scroll-triggered animations
+Interactive project galleries
+Image zoom and carousel navigation
+Responsive mobile layout
+Project category filtering
+Custom cursor interactions on desktop
+Terminal/HUD-inspired visual effects
+Loading/boot sequence
+Scroll progress indicator
+
+The website is designed to maintain its visual identity across both desktop and mobile devices while keeping the interface lightweight and interactive.
 
 ## Tech Stack
 
@@ -26,7 +36,11 @@ I built this site from scratch using vanilla web technologies, focusing heavily 
 
 ## How to Run Locally
 
-If you want to view the code locally on your machine:
-1. Clone this repository: `git clone https://github.com/mikkomikkomi/[your-repo-name].git`
-2. Open the project folder in VS Code or your preferred editor.
-3. Open `index.html` in any modern web browser (or use the Live Server extension in VS Code for hot-reloading). No `npm install` or build steps required.
+To run the portfolio locally:
+
+git clone https://github.com/mikkomikkomi/Personal-Portfolio.git
+cd Personal-Portfolio
+
+Then open index.html in a browser.
+
+Because the project is built primarily with HTML, CSS, and JavaScript, no build system or framework is required.
