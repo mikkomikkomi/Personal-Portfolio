@@ -6,7 +6,9 @@ Personal portfolio website showcasing my work in UI/UX design, web development, 
 
 ## About Me
 
-I'm a Computer Science student with a strong interest in UI/UX design, game development, web development, and digital creative work.
+I have a background in Computer Science, with a strong interest in UI/UX design, game development, web development, and digital creative work.
+
+I enjoy combining technical and creative skills to build digital experiences that are functional, visually engaging, and user-focused. I also enjoy collaborating with teams and exploring different areas of software and game development.
 
 ## Website Features
 
