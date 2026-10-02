@@ -922,6 +922,9 @@
         let currentImages = [];
         let currentIndex = 0;
         let lastFocusedElement = null;
+        let isChangingSlide = false;
+        let gallerySession = 0;
+        const galleryImageCache = new Map();
 
         let imgScale = 1;
 
@@ -1073,12 +1076,68 @@
 
         });
 
+        function preloadImage(src) {
+
+            if (!src || src.toLowerCase().endsWith('.pdf')) return Promise.resolve(true);
+
+            if (galleryImageCache.has(src)) return galleryImageCache.get(src);
+
+            const promise = new Promise(resolve => {
+                const image = new Image();
+                image.decoding = "async";
+                image.onload = async () => {
+                    try {
+                        if (typeof image.decode === "function") await image.decode();
+                    } catch (_) {
+                        // The image is already usable even when decode() is unsupported/interrupted.
+                    }
+                    resolve(true);
+                };
+                image.onerror = () => resolve(false);
+                image.src = src;
+            });
+
+            galleryImageCache.set(src, promise);
+            return promise;
+        }
+
+        function preloadGallery(images) {
+
+            const imageSources = [...new Set(
+                images.filter(src => src && !src.toLowerCase().endsWith('.pdf'))
+            )];
+
+            if (!imageSources.length) return;
+
+            // Prioritize the currently visible image plus the two most likely next taps.
+            const priorityIndexes = [currentIndex, currentIndex + 1, currentIndex - 1]
+                .map(index => (index + imageSources.length) % imageSources.length);
+
+            [...new Set(priorityIndexes)].forEach(index => preloadImage(imageSources[index]));
+
+            // Warm the remaining gallery images when the browser is idle so opening a
+            // project does not compete as heavily with the initial modal render.
+            const preloadRemaining = () => {
+                imageSources.forEach((src, index) => {
+                    if (!priorityIndexes.includes(index)) preloadImage(src);
+                });
+            };
+
+            if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(preloadRemaining, { timeout: 1200 });
+            } else {
+                setTimeout(preloadRemaining, 300);
+            }
+        }
+
         function openModal(imgArray, title, desc) {
 
             lastFocusedElement = document.activeElement;
             currentImages = imgArray;
 
             currentIndex = 0;
+            isChangingSlide = false;
+            gallerySession++;
 
             resetZoom();
 
@@ -1125,6 +1184,7 @@
                 document.getElementById("slideIndicator").style.visibility = "visible";
 
                 updateCarousel();
+                preloadGallery(currentImages);
 
             }
 
@@ -1159,19 +1219,50 @@
 
         }
 
-        function changeSlide(direction) {
+        async function changeSlide(direction) {
+
+            if (isChangingSlide || currentImages.length <= 1) return;
+
+            const sessionAtStart = gallerySession;
+            const targetIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+            const targetSrc = currentImages[targetIndex];
 
             resetZoom();
+            isChangingSlide = true;
+            zoomCont.classList.add("is-loading");
 
-            gsap.to(imgEl, { opacity: 0, duration: 0.15, onComplete: () => {
+            const indicator = document.getElementById("slideIndicator");
+            const previousIndicator = indicator.innerText;
+            indicator.innerText = `// LOADING_DATA... ${targetIndex + 1}/${currentImages.length}`;
 
-                currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+            // Keep the current image visible while the next one downloads.
+            const loaded = await preloadImage(targetSrc);
 
-                updateCarousel();
+            if (sessionAtStart !== gallerySession || !document.body.classList.contains("modal-open")) {
+                isChangingSlide = false;
+                zoomCont.classList.remove("is-loading");
+                return;
+            }
 
-                gsap.to(imgEl, { opacity: 1, duration: 0.2 });
+            if (!loaded) {
+                indicator.innerText = "// DATA_LOAD_ERROR";
+                setTimeout(() => {
+                    if (sessionAtStart === gallerySession) indicator.innerText = previousIndicator;
+                }, 1200);
+                isChangingSlide = false;
+                zoomCont.classList.remove("is-loading");
+                return;
+            }
 
-            }});
+            currentIndex = targetIndex;
+            updateCarousel();
+
+            // The image is already in the browser cache, so the fade can happen
+            // after it is ready rather than showing a blank frame on slow mobile data.
+            gsap.fromTo(imgEl, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" });
+
+            zoomCont.classList.remove("is-loading");
+            isChangingSlide = false;
 
         }
 
