@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my work in UI/UX design, web development, game development, graphics design, and other creative projects.
 
-🌐 View Portfolio
+🌐 View Portfolio: https://mikkomikkomi.github.io/Personal-Portfolio/
 
 ## About Me
 
